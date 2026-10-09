@@ -1,6 +1,6 @@
-# Sri Lanka Paddy Production — Streamlit Dashboard
+# Sri Lanka Paddy Production - Streamlit Dashboard
 
-A Streamlit companion to the IT 5514 Applied Machine Learning notebook.
+A Streamlit companion to the Applied Machine Learning notebook.
 
 ## Windows setup
 

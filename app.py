@@ -10,7 +10,7 @@ DATA = BASE / "data" / "Sri_Lanka_Paddy_Production.csv"
 
 st.set_page_config(page_title="Sri Lanka Paddy Production", page_icon="🌾", layout="wide")
 st.title("🌾 Sri Lanka Paddy Production")
-st.caption("IT 5514 Applied Machine Learning · Random Forest and boosting model comparison")
+st.caption("Applied Machine Learning · Random Forest and boosting model comparison")
 
 if not (MODELS / "metadata.json").exists():
     st.error("Trained model files are missing. Run `python train_models.py` first.")
@@ -95,10 +95,8 @@ with tab3:
         "**Source:** [Department of Census and Statistics, Sri Lanka — "
         "Paddy Statistics](https://www.statistics.gov.lk/Agriculture/StaticalInformation/PaddyStatistics)"
     )
-    st.write("The dataset was reused from a previous Programming for Artificial "
-             "Intelligence assignment. The source spreadsheets were consolidated "
-             "by district, year and Maha/Yala season into one CSV. "
-             "Please refer to the earlier data preparation work for the exact consolidation steps.")
+    st.write("The source spreadsheets were consolidated "
+             "by district, year and Maha/Yala season into one CSV.")
     st.write("**Inputs:** District, Season, Year, Sown Extent (hectares)")
     st.write("**Target:** Production (thousand metric tons)")
     st.write("Harvested extent and average yield were excluded from the model inputs "

@@ -1,36 +1,26 @@
-# Python virtual environments and caches
+# Python environment
 .venv/
 venv/
+
+# Python generated files
 __pycache__/
 *.py[cod]
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
 
-# Notebook checkpoints and editor settings
+# CatBoost training logs
+catboost_info/
+
+# Jupyter temporary files
 .ipynb_checkpoints/
+
+# Environment variables
+.env
+
+# OS and IDE
+.DS_Store
+Thumbs.db
 .vscode/
 .idea/
 
-# CatBoost training output
-catboost_info/
-
-# Local secrets and environment
-.env
-.env.*
-!.env.example
-.streamlit/secrets.toml
-
-# Generated model binaries (recreate with train_models.py)
+# Trained model files (recreated using train_models.py)
 models/*.joblib
 models/*.pkl
-models/*.pickle
-
-# OS-generated files
-.DS_Store
-Thumbs.db
-
-# Packaging
-build/
-dist/
-*.egg-info/
