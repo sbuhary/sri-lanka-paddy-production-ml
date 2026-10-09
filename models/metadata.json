@@ -1,0 +1,46 @@
+{
+  "models": {
+    "Random Forest": "random_forest.joblib",
+    "XGBoost": "xgboost.joblib",
+    "LightGBM": "lightgbm.joblib",
+    "CatBoost": "catboost.joblib",
+    "RF + ANN": "rf_ann.joblib"
+  },
+  "districts": [
+    "Ampara",
+    "Anuradhapura",
+    "Badulla",
+    "Batticaloa",
+    "Colombo",
+    "Galle",
+    "Gampaha",
+    "Hambantota",
+    "Jaffna",
+    "Kalutara",
+    "Kandy",
+    "Kegalle",
+    "Kilinochchi",
+    "Kurunegala",
+    "Mannar",
+    "Matale",
+    "Matara",
+    "Monaragala",
+    "Mullaitivu",
+    "Nuwara Eliya",
+    "Polonnaruwa",
+    "Puttalam",
+    "Ratnapura",
+    "Trincomalee",
+    "Vavuniya"
+  ],
+  "seasons": [
+    "Maha",
+    "Yala"
+  ],
+  "year_min": 1978,
+  "year_max": 2025,
+  "rows": 2264,
+  "original_rows": 2350,
+  "split": "Random 80/20, random_state=42",
+  "target": "Production_Thousand_Metric_Tons"
+}
