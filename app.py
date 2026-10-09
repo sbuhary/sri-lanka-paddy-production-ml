@@ -1,3 +1,4 @@
+import plotly.express as px
 from pathlib import Path
 import json
 import joblib
@@ -71,17 +72,51 @@ with tab2:
                "Error units are thousand metric tons.")
     st.bar_chart(metrics.set_index("Model")[["RMSE", "MAE"]])
     chart_model = st.selectbox("Actual vs predicted", metrics["Model"].tolist())
-    import matplotlib.pyplot as plt
-    fig, ax = plt.subplots(figsize=(7, 4))
-    ax.scatter(test_predictions["Actual"], test_predictions[chart_model],
-               alpha=.35, s=12)
-    upper = max(test_predictions["Actual"].max(), test_predictions[chart_model].max())
-    ax.plot([0, upper], [0, upper], "--", color="gray")
-    ax.set_xlabel("Actual production (thousand metric tons)")
-    ax.set_ylabel("Predicted production (thousand metric tons)")
-    ax.set_title(chart_model)
-    st.pyplot(fig)
-    plt.close(fig)
+    plot_df = pd.DataFrame({
+        "Actual": test_predictions["Actual"],
+        "Predicted": test_predictions[chart_model]
+    })
+
+    plot_df["Absolute Error"] = (
+        plot_df["Actual"] - plot_df["Predicted"]
+    ).abs()
+
+    fig = px.scatter(
+        plot_df,
+        x="Actual",
+        y="Predicted",
+        hover_data=["Absolute Error"],
+        labels={
+            "Actual": "Actual production (thousand metric tons)",
+            "Predicted": "Predicted production (thousand metric tons)"
+        },
+        height=450,
+        opacity=0.6,
+        title=f"{chart_model}: Actual vs Predicted"
+    )
+
+    axis_max = max(
+        plot_df["Actual"].max(),
+        plot_df["Predicted"].max()
+    ) * 1.05
+
+    fig.add_shape(
+        type="line",
+        x0=0,
+        y0=0,
+        x1=axis_max,
+        y1=axis_max,
+        line=dict(color="gray", dash="dash")
+    )
+
+    fig.update_layout(
+        xaxis=dict(range=[0, axis_max]),
+        yaxis=dict(range=[0, axis_max]),
+        margin=dict(l=20, r=20, t=50, b=20),
+        template="plotly_white"
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
     st.info("This comparison uses a random 80/20 split. It does not establish "
             "performance on genuinely future seasons.")
 
