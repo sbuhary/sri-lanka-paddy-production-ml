@@ -10,7 +10,7 @@ BASE = Path(__file__).resolve().parent
 MODELS = BASE / 'models'
 DATA = BASE / 'data' / 'Sri_Lanka_Paddy_Production.csv'
 GREEN = '#237653'
-st.set_page_config(page_title='Paddy Insights | Sri Lanka', page_icon='🌾', layout='wide')
+st.set_page_config(page_title='Lanka Paddy Analytics', page_icon='🌾', layout='wide')
 st.markdown('''
 <style>
 .block-container {max-width:1240px; padding-top:2rem; padding-bottom:3rem;}
@@ -26,7 +26,7 @@ button[data-baseweb="tab"] {font-weight:600; padding-left:1rem; padding-right:1r
 @media(max-width:640px) {.block-container {padding-top:1rem;} .hero {padding:1.4rem;}}
 </style>
 <div class="hero"><div class="eyebrow">SRI LANKA · PADDY ANALYTICS</div>
-<h1>🌾 Paddy Insights</h1><p>Explore district-level paddy production, build a production scenario,
+<h1>🌾 Lanka Paddy Analytics</h1><p>Explore district-level paddy production, build a production scenario,
 and compare five machine learning models in one place.</p></div>
 ''', unsafe_allow_html=True)
 
@@ -196,4 +196,4 @@ with tab3:
     st.download_button('Download filtered data',filtered.to_csv(index=False),file_name='paddy_source_records.csv',mime='text/csv')
 
 st.divider()
-st.caption('🌾 Paddy Insights · Applied Machine Learning · Sri Lanka')
+st.caption('🌾 Lanka Paddy Analytics · © 2026 Shihaaz Buhary')
